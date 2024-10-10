@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://sfaibm2iagah"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_eeti8"]
+
+[node name="World" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00761986, 0.0692673, 0.00183105)
+script = ExtResource("1_eeti8")
+chunk_size = 16
+world_size = Vector3i(16, 2, 16)
+seed = 1
+noise_frequency = 0.01
