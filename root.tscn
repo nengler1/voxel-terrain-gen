@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://odvnol3fj8c6"]
+
+[ext_resource type="PackedScene" uid="uid://sfaibm2iagah" path="res://world.tscn" id="1_mwixn"]
+[ext_resource type="PackedScene" uid="uid://bxtps4xbl0eyf" path="res://player.tscn" id="3_jdtsw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ud3uw"]
+
+[sub_resource type="Sky" id="Sky_nnfv8"]
+sky_material = SubResource("ProceduralSkyMaterial_ud3uw")
+
+[sub_resource type="Environment" id="Environment_mue7a"]
+background_mode = 2
+sky = SubResource("Sky_nnfv8")
+tonemap_mode = 2
+ssao_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_4y7yr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pd0l1"]
+
+[node name="Root" type="Node3D"]
+
+[node name="World" parent="." instance=ExtResource("1_mwixn")]
+generate_chunks = false
+world_size = Vector3i(5, 4, 5)
+seed = 4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.183013, 0.553603, 0.812422, -0.683013, -0.665976, 0.29995, 0.707107, -0.5, 0.5, -15.733, 42.734, 79.772)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mue7a")
+
+[node name="Player" parent="." instance=ExtResource("3_jdtsw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5289, 39.5358, 31.2867)
+
+[node name="Ball (Testing)" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0746, 42.2615, 30.1032)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball (Testing)"]
+mesh = SubResource("SphereMesh_4y7yr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball (Testing)"]
+shape = SubResource("SphereShape3D_pd0l1")

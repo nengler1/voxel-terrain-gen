@@ -20,4 +20,7 @@ _surfaces = [{
 material_override = ExtResource("1_aechj")
 mesh = SubResource("ArrayMesh_77iyv")
 script = ExtResource("2_7y2xr")
-threshold = -0.605
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]

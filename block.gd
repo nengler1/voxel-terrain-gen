@@ -2,4 +2,4 @@ extends Node
 
 class_name Block
 
-enum BlockType {Air, Dirt}
+enum BlockType {Air, Dirt, Stone}
