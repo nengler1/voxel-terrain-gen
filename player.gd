@@ -60,7 +60,6 @@ func _physics_process(delta):
 	#print(velocity_clamped)
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector(
 		"move_left",
 		"move_right",
@@ -97,10 +96,12 @@ func raycast_block(remove_block: bool):
 	ray_query.from = from
 	ray_query.to = to
 	var result = space.intersect_ray(ray_query)
+	print(result)
 
 	if result and result.position:
 		var hit_pos = result.position - (result.normal * 0.5)
 		hit_pos = Vector3i(round(hit_pos.x), round(hit_pos.y), round(hit_pos.z))
+		print(hit_pos)
 		
 		if remove_block:
 			world.set_block_by_world_position(hit_pos, Block.BlockType.Air)
@@ -112,8 +113,8 @@ func raycast_block(remove_block: bool):
 
 func get_block_type_for_height(height: int) -> Block.BlockType:
 	# height thresholds for block types
-	var stone_height = world.chunk_size * 1.2
-	if height > stone_height:  # heights above 48 are stone
+	var stone_height = world.chunk_size * world.stone_height
+	if height > stone_height:  # heights above stone_height
 		return Block.BlockType.Stone
-	else:  # Heights below are grass
+	else:  # heights below are grass
 		return Block.BlockType.Dirt

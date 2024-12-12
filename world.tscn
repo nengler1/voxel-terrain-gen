@@ -5,8 +5,9 @@
 [node name="World" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00761986, 0.0692673, 0.00183105)
 script = ExtResource("1_eeti8")
-generate_chunks = true
 chunk_size = 16
-world_size = Vector3i(4, 2, 4)
-seed = 1
+world_size = Vector3i(6, 2, 6)
+gen_normals = true
+seed = 2
 noise_frequency = 0.01
+stone_height = 1.2

@@ -75,8 +75,8 @@ func add_triangles():
 	indices.append(face_count * 4 + 3)
 	face_count += 1 # goes to next face
 	
-func add_normals(count : int, vector : Vector3):
-	for i in range(count):
+func add_normals(vector : Vector3):
+	for i in range(4):
 		normals.append(vector)
 	
 	
@@ -93,7 +93,7 @@ func gen_cube_mesh(pos : Vector3):
 		vertices.append(pos + Vector3( 0.5,  0.5,  0.5))
 		vertices.append(pos + Vector3(-0.5,  0.5,  0.5))
 		
-		add_normals(4, Vector3(0, 1, 0))
+		add_normals(Vector3(0, 1, 0))
 		add_triangles()
 		is_top_block = true
 		add_uvs_by_block_type(block_type, is_top_block, top_face)
@@ -107,7 +107,7 @@ func gen_cube_mesh(pos : Vector3):
 		vertices.append(pos + Vector3( 0.5, -0.5, -0.5))
 		vertices.append(pos + Vector3( 0.5, -0.5,  0.5))
 		
-		add_normals(4, Vector3(1, 0, 0))
+		add_normals(Vector3(1, 0, 0))
 		add_triangles()
 		add_uvs_by_block_type(block_type, is_top_block, false)
 		#if is_top_block:
@@ -123,7 +123,7 @@ func gen_cube_mesh(pos : Vector3):
 		vertices.append(pos + Vector3(  0.5, -0.5,  0.5))
 		vertices.append(pos + Vector3( -0.5, -0.5,  0.5))
 		
-		add_normals(4, Vector3(0, 0, 1))
+		add_normals(Vector3(0, 0, 1))
 		add_triangles()
 		add_uvs_by_block_type(block_type, is_top_block, false)
 		#if is_top_block:
@@ -139,7 +139,7 @@ func gen_cube_mesh(pos : Vector3):
 		vertices.append(pos + Vector3( -0.5, -0.5,  0.5))
 		vertices.append(pos + Vector3( -0.5, -0.5, -0.5))
 		
-		add_normals(4, Vector3(-1, 0, 0))
+		add_normals(Vector3(-1, 0, 0))
 		add_triangles()
 		add_uvs_by_block_type(block_type, is_top_block, false)
 		#if is_top_block:
@@ -155,7 +155,7 @@ func gen_cube_mesh(pos : Vector3):
 		vertices.append(pos + Vector3( -0.5, -0.5, -0.5))
 		vertices.append(pos + Vector3(  0.5, -0.5, -0.5))
 		
-		add_normals(4, Vector3(0, 0, -1))
+		add_normals(Vector3(0, 0, -1))
 		add_triangles()
 		add_uvs_by_block_type(block_type, is_top_block, false)
 		#if is_top_block:
@@ -171,7 +171,7 @@ func gen_cube_mesh(pos : Vector3):
 		vertices.append(pos + Vector3(  0.5, -0.5, -0.5))
 		vertices.append(pos + Vector3( -0.5, -0.5, -0.5))
 		
-		add_normals(4, Vector3(0, -1, 0))
+		add_normals(Vector3(0, -1, 0))
 		add_triangles()
 		is_top_block = true
 		add_uvs_by_block_type(block_type, is_top_block, false)

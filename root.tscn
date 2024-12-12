@@ -21,19 +21,20 @@ ssao_enabled = true
 [node name="Root" type="Node3D"]
 
 [node name="World" parent="." instance=ExtResource("1_mwixn")]
-generate_chunks = false
-world_size = Vector3i(5, 4, 5)
-seed = 4
+world_size = Vector3i(8, 4, 8)
+seed = 52
+noise_frequency = 0.05
+stone_height = 0.8
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.183013, 0.553603, 0.812422, -0.683013, -0.665976, 0.29995, 0.707107, -0.5, 0.5, -15.733, 42.734, 79.772)
+transform = Transform3D(0.835125, -0.538197, 0.11362, -0.534366, -0.744812, 0.399636, -0.130458, -0.39446, -0.909605, 14.0525, 38.2038, 79.9052)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mue7a")
 
 [node name="Player" parent="." instance=ExtResource("3_jdtsw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5289, 39.5358, 31.2867)
+transform = Transform3D(1, 0, 0, 0, 0.99, 0, 0, 0, 1, 25.5289, 39.5358, 31.2867)
 
 [node name="Ball (Testing)" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0746, 42.2615, 30.1032)

@@ -5,6 +5,7 @@ extends Node3D
 @export var generate_chunks : bool
 @export var chunk_size : int
 @export var world_size : Vector3i
+@export var gen_normals : bool
 
 # chunk referenced by a vector3i (to find a block, first get to the chunk then the block) 
 var chunks = {}
@@ -16,6 +17,8 @@ var noise
 var chunk_prototype = preload("res://chunk.tscn")
 
 var chunks_tagged_for_regen = []
+
+@export var stone_height : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -107,7 +110,7 @@ func get_block(pos : Vector3i, from_noise = false):
 	var n = (noise.get_noise_2d(pos.x, pos.z) + 1) * chunk_size
 	# if noise level is greater than the y position
 	if n > pos.y:
-		if pos.y > chunk_size * 1.2: # Upper height
+		if pos.y > chunk_size * stone_height: # Upper height
 			return Block.BlockType.Stone
 		else:
 			return Block.BlockType.Dirt
